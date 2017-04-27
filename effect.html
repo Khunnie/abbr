@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>3D</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+@keyframes move{
+		0%{
+			transform: rotateX(0) rotateY(0) rotateZ(0);
+		}
+		100%{
+			transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+		}
+}
+@keyframes rotate{
+		0%{
+			transform: rotateY(0);
+		}
+		100%{
+			transform: rotateY(360deg);
+		}
+	}
+	body{
+		background: black;
+	}
+	.cube{
+		width: 150px;
+		height: 150px;
+		position: relative;
+		margin:200px auto;
+		-webkit-transform-style: preserve-3d;
+		transform-origin: center center -75px; 
+		animation:move 3s linear infinite ;
+
+	}
+	.cube:hover{
+		animation-play-state: paused;
+	}
+	li{
+		list-style: none;
+	}
+	.cube li{
+		width: 150px;
+		height: 150px;
+		position: absolute;
+		list-style: none;
+		font-size: 24px;
+		color: #fff;
+		line-height: 150px;
+		text-align: center;
+		border-radius:50%; 
+	}
+	.cube li:nth-of-type(1){
+		background: pink;
+		left: 0;
+		top: 0;
+	}
+	.cube li:nth-of-type(2){
+		background: blue;
+		left: 0;
+		top: -150px;
+		transform:rotateX(90deg);
+		-webkit-transform-origin: bottom;
+	}
+	.cube li:nth-of-type(3){
+		background: yellow;
+		left: 150px;
+		top: 0;
+		transform:rotateY(90deg);
+		-webkit-transform-origin: left;
+	}
+	.cube li:nth-of-type(4){
+		background: red;
+		left: 0px;
+		top: 150px;
+		transform:rotateX(-90deg);
+		-webkit-transform-origin: top;
+	}
+	.cube li:nth-of-type(5){
+		background: green;
+		left: -150px;
+		top: 0px;
+		transform:rotateY(-90deg);
+		-webkit-transform-origin: right;
+	}
+	 .cube li:nth-of-type(6){
+		background: black;
+		left: 0px;
+		top: 0px;
+		transform: translateZ(-100px) rotateY(180deg);
+	}
+	/*  八菱柱*/
+	#wrap{
+		width:200px;
+		height:300px;
+		margin:30px auto;
+		position:relative;
+		perspective: 2000px;
+		perspective-origin:0 -800px;
+		
+	}
+	#wrap div{
+		width:200px;
+		height:300px;
+		position:absolute;
+		background-color:pink;
+		left:200px;
+		top:0;
+		transform-origin:left;
+		transform:rotateY(45deg);
+		transform-style:preserve-3d;	
+			
+	}
+	#wrap div p{
+		margin:0;
+		font-size:40px;
+		text-align:center;
+		line-height:300px;
+		border: 1px solid black;
+	}
+	#wrap .firstDiv{
+		left:0;
+		transform-origin:center center -240px;
+		animation: rotate 3s linear infinite ;
+	}
+	/*上转*/
+	#top{
+		width:150px;
+		height:100px;
+		margin:500px auto;
+		position:relative;
+		perspective: 2000px;
+		perspective-origin:-600px 0;
+		
+	}
+	#top div{
+		width:150px;
+		height:100px;
+		position:absolute;
+		background-color:pink;
+		left:0px;
+		top:100px;
+		transform-origin:top;
+		transform:rotateX(30deg);
+		transform-style:preserve-3d;	
+			
+	}
+	#top div p{
+		margin:0;
+		font-size:40px;
+		text-align:center;
+		line-height:100px;
+		border: 1px solid black;
+	}
+	#top .firstDiv{
+		top:0;
+		transform-origin:center center -240px;
+		/*animation: rotate 3s linear infinite ;*/
+	}
+</style>
+</head>
+<body>
+	<!-- 正方体 -->
+    	<ul class="cube">
+    		<li>1</li>
+    		<li>2</li>
+    		<li>3</li>
+    		<li>4</li>
+    		<li>5</li>
+    		<li>6</li>
+    	</ul>
+    	<!--  八菱柱-->
+    	<section id="wrap">
+		<div class="firstDiv"><p>1</p>
+		        <div><p>2</p>
+		            <div><p>3</p>              
+		                <div><p>4</p>
+		                    <div><p>5</p>                     	
+		                        <div><p>6</p>                                
+		                            <div><p>7</p>                                  	
+		                               <div><p>8</p>                                      	
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+	    </div>
+        </section>
+        <!-- 上转 -->
+        <section id="top">
+		<div class="firstDiv"><p>1</p>
+		        <div><p>2</p>
+		            <div><p>3</p>              
+		                <div><p>4</p>
+		                    <div><p>5</p>                     	
+		                        <div><p>6</p>                                
+		                            <div><p>7</p>                                  	
+		                               <div><p>8</p> 
+		                               	<div><p>9</p>
+		                               		<div><p>10</p>
+		                               			<div><p>11</p>
+		                               				<div><p>12</p>
+		                               				</div>
+
+		                               			</div>
+		                               		</div>
+		                               	</div>                                  	
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+	    </div>
+        </section>
+</body>
+</html>
